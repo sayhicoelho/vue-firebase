@@ -1,23 +1,19 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <v-app>
+    <v-content>
+      <v-layout align-center justify-center row fill-height v-if="routing">
+        <v-progress-circular :size="70" :width="7" color="primary" indeterminate/>
+      </v-layout>
+      <router-view v-show="!routing"/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  name: 'App'
+  name: 'app',
+  computed: mapState(['routing'])
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
