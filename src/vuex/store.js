@@ -8,20 +8,31 @@ Vue.use(Vuex)
 const state = {
   firstLoad: true,
   routing: false,
-  currentUser: null
+  currentUser: {},
+  snackbar: {
+    show: false,
+    text: ''
+  }
 }
 
 const getters = { }
 
 const mutations = {
   SET_CURRENT_USER (state, payload) {
-    state.currentUser = payload
+    state.currentUser = payload || {}
   },
   SET_FIRST_LOAD (state) {
     state.firstLoad = false
   },
   SET_ROUTING (state, payload) {
     state.routing = payload
+  },
+  SHOW_SNACKBAR (state, payload) {
+    state.snackbar.show = true
+    state.snackbar.text = payload
+  },
+  HIDE_SNACKBAR (state) {
+    state.snackbar.show = false
   }
 }
 
