@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "example-vue-firebase"
+  }
+}
