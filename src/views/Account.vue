@@ -1,7 +1,7 @@
 <template>
   <div>
     <navigation-drawer/>
-    <router-view/>
+    <router-view :class="{ 'has-alert': !isOnline }"/>
   </div>
 </template>
 
@@ -15,3 +15,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.has-alert {
+  margin-top: 60px !important;
+}
+</style>

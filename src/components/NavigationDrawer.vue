@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" fixed app>
+    <v-navigation-drawer v-model="drawer" fixed app :class="{ 'has-alert': !isOnline }">
       <v-list>
         <v-list-tile :to="{ name: 'Home' }" ripple exact>
           <v-list-tile-action>
@@ -103,3 +103,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.has-alert {
+  margin-top: 60px !important;
+}
+</style>
